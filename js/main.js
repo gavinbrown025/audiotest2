@@ -1,36 +1,31 @@
 (() => {
+	//variable stack first
+	const keys = Array.from(document.querySelectorAll('.key'));
+	keys.forEach(key => key.addEventListener('transitionend', removePlayingClass));
 
-const playButtons = document.querySelectorAll('.playTrack'),
-	pauseButtons = document.querySelectorAll('.pauseTrack'),
-	rwButtons = document.querySelectorAll('.rwTrack'),
-	audioElement = document.querySelector('#jukebox');
+	function removePlayingClass(event) {
+		event.target.classList.remove('playing');
+	}
 
-function loadTrack() {
+	function playSound(event) {
+		// event is the event that gets generatedwhen you push any key
+		// it contains all kinds of information about the event -> the target
+		//, what called it, where it happened in the app
 
-	// what audio src we want to play
-	let audioSource = `audio/${this.dataset.trackref}.mp3`;
+		const audio = document.querySelector(`audio[data-key="${event.keyCode}"]`),
+			key = document.querySelector(`div[data-key="${event.keyCode}"]`);
 
-	//set the source element of the audio track
-	audioElement.src = audioSource;
+		//the ! is a test for inequality -> if thsi expression is not true,
+		//then do something also called a bang operator
+		if (!audio) { return } // a return is a way to stop function exicution
+							// basically means stop code here
 
-	audioElement.load();
-	playTrack();
-}
+		audio.currentTime = 0;
+		audio.play();
 
-function playTrack() {
-	audioElement.play();
-}
+		key.classList.add('playing');
+	}
+	// listen for the keyboard event, then do something with it
+	window.addEventListener('keydown', playSound);
 
-function pauseTrack() {
-	audioElement.pause();
-}
-
-function rwTrack() {
-	audioElement.currentTime = 0;
-}
-
-playButtons.forEach(button => button.addEventListener('click', loadTrack));
-pauseButtons.forEach(button => button.addEventListener('click', pauseTrack));
-rwButtons.forEach(button => button.addEventListener('click', rwTrack));
-
-})()
+})();
