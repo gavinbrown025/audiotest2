@@ -1,0 +1,25 @@
+body{
+	font-weight: bold;
+	font-family: arial;
+	font-size: 20px;
+}
+
+.controller {
+	display: inline;
+}
+
+.button {
+	margin: 10px;
+	width:80px;
+	background-color: #bada55;
+	padding: 20px;
+	border-radius: 10px;
+	text-align: center;
+	color: #fff;
+	box-shadow: 4px 4px 2px rgba(0,0,0, .8);
+}
+
+.button:hover {
+	transform:scale(1.1);
+	cursor:pointer;
+}

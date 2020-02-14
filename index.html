@@ -3,15 +3,45 @@
 <head>
 	<meta charset="utf-8">
 	<title></title>
+	<link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
 <body>
 	<h1>simple audio example</h1>
 
-	<audio src="audio/Companion.mp3" autoplay="true" controls></audio>
+	<audio id="jukebox" src=""></audio>
+
+	<div>
+		<div class="controller">
+			<div data-trackref="Companion" class="button playTrack">PLAY</div>
+			<div class="button pauseTrack">PAUSE</div>
+			<div class="button rwTrack">REWIND</div>
+		</div>
+		<img src="vildjharta.jpg">
+	</div>
+
+	<div>
+		<div class="controller">
+			<div data-trackref="Albatroz" class="button playTrack">PLAY</div>
+			<div class="button pauseTrack">PAUSE</div>
+			<div class="button rewindTrack">REWIND</div>
+		</div>
+		<img src="images/AC.jpeg">
+	</div>
+
+	<div>
+		<div class="controller">
+			<div data-trackref="STP_Interstate_Love_Song" class="button playTrack">PLAY</div>
+			<div class="button pauseTrack">PAUSE</div>
+			<div class="button rewindTrack">REWIND</div>
+		</div>
+		<img src="vildjharta.jpg">
+	</div>
+
+	<!--audio src="audio/Companion.mp3" autoplay="true" controls></audio>
 
 	<audio src="audio/Aron Chupa Im An Albatroz [Xsongspk.me].mp3" autoplay="true" controls></audio>
 
-	<audio src="audio/STP_Interstate_Love_Song.mp3" autoplay="true" controls></audio>
-
+	<audio src="audio/STP_Interstate_Love_Song.mp3" autoplay="true" controls></audio-->
+<script type="text/javascript" src="js/main.js"></script>
 </body>
 </html>
